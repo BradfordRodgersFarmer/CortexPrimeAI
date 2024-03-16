@@ -60,13 +60,13 @@ export default function Home() {
         imageConfig: genConfig(episode.villian, {size: 200})
     }
     characters.push(villianForEpisode);
-    const episdeInfo = {
+    const episdeInfo : Episode = {
         description: episode.description,
         villian: villianForEpisode,
         mcguffin: episode.mcguffin,
         missionId: episode.missionId,
     }
-    setEpisodes(episode);
+    setEpisodes(episdeInfo);
 
 
   }
