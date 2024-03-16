@@ -45,19 +45,32 @@ interface Episode {
    missionId: number;
 }
 
+type FormValues = {
+    description: string
+}
+type FormValues2 = {
+    job:string,
+    alignment:string
+}
+type FormValues3 = {
+    location: string
+}
+
 export default function Home() {
   const [characters, setCharacters] = useState<Character[] >([])
   const [curEpisode, setEpisodes] = useState<Episode | null>(null );
   const [scenes, setScenes] = useState<Scene[] >([]);
-  const { register, handleSubmit } = useForm();
-  const episodeCreater = async ({desciption}) => {
-    const episode = await createEpisode(desciption);
+  const { register, handleSubmit} = useForm<FormValues>();
+  const { register: register2, handleSubmit: handleSubmit2 } = useForm<FormValues2>();
+  const { register: register3, handleSubmit: handleSubmit3  } = useForm<FormValues3>();
+  const episodeCreater = async (data : FormValues) => {
+    const episode = await createEpisode(data.description);
     const villianForEpisode : Character = {
         name: "",
         description: episode.villian,
         attributes: episode.attributes,
         roles: episode.roles,
-        imageConfig: genConfig(episode.villian, {size: 200})
+        imageConfig: genConfig(episode.villian)
     }
     characters.push(villianForEpisode);
     const episdeInfo : Episode = {
@@ -70,14 +83,14 @@ export default function Home() {
 
 
   }
-  const characterCreater = async ({job, alignment}) => {
-    const character = await createCharacter(job, alignment);
-    character.imageConfig = genConfig(character.name, {size: 200})
+  const characterCreater = async (data : FormValues2) => {
+    const character = await createCharacter(data.job, data.alignment);
+    character.imageConfig = genConfig(character.name)
     setCharacters([...characters, character])
   }
 
-  const sceneCreater = async ({location}) => {
-     const scene = await createScene(location);
+  const sceneCreater = async (data : FormValues3 ) => {
+     const scene = await createScene(data.location);
      setScenes([...scenes, scene]);
   }
   return (
@@ -90,21 +103,21 @@ export default function Home() {
             </div>
             <button type="submit" className="ui primary button">Create Episode</button>
         </form>
-        <form onSubmit={handleSubmit(characterCreater)}>
+        <form onSubmit={handleSubmit2(characterCreater)}>
             <label>Character Job</label>
             <div className="ui input">
-                <input {...register('job')}  />
+                <input {...register2('job')}  />
             </div>
             <label>Character Alignment</label>
             <div className="ui input">
-                 <input {...register('alignment')} />
+                 <input {...register2('alignment')} />
             </div>
             <button type="submit" className="ui primary button">Create Character</button>
         </form>
-        <form onSubmit={handleSubmit(sceneCreater)}>
+        <form onSubmit={handleSubmit3(sceneCreater)}>
             <label>Scene Location</label>
             <div className="ui input">
-                <input {...register('location')}  />
+                <input {...register3('location')}  />
             </div>
             <button type="submit" className="ui primary button">Create Scene</button>
         </form>
@@ -116,9 +129,9 @@ export default function Home() {
         <h2>Characters</h2>
         <ul>
             {characters.map((character, index) => (
-                <div className="ui card">
+                <div className="ui card" key={character.name}>
                     <div className="image">
-                        <Avatar {...character.imageConfig} />
+                        <Avatar {...character.imageConfig}  />
                     </div>
                     <div className="content">
                         <a className="header">{character.name}</a>
@@ -137,13 +150,13 @@ export default function Home() {
                         {Object.keys(character.attributes).map((key, index) => (
                             <div key={index}>
                                 <span>{key}</span>
-                                <span>d{character.attributes[key]}</span>
+                                <span>d{character.attributes[key as keyof Attributes]}</span>
                             </div>
                         ))}
                         {Object.keys(character.roles).map((key, index) => (
                             <div key={index}>
                                 <span>{key}</span>
-                                <span>d{character.roles[key]}</span>
+                                <span>d{character.roles[key as keyof Role]}</span>
                             </div>
                         ))}
                     </div>
