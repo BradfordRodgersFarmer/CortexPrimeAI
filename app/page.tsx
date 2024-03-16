@@ -35,7 +35,7 @@ interface Character {
   npcId?: number;
   motivation?: string;
   job?: string;
-  imageConfig?: genConfig;
+  imageConfig?: any;
 }
 
 interface Episode {
