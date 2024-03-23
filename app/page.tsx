@@ -1,171 +1,76 @@
-"use client";
-import Image from "next/image";
-import { useForm } from 'react-hook-form';
-import Avatar, { genConfig } from 'react-nice-avatar'
+import  Head from 'next/head';
+import  Link from 'next/link';
+import Image from 'next/image';
 
-import { createCharacter, createEpisode, createScene } from './queries/character'
-import {useState} from "react";
+export default function Page() {
+    return (
+        <div>
+            <Head>
+                <meta charSet="UTF-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <title>Bradford Allen Rodgers-Farmer's Portfolio</title>
 
-interface Role {
-    grifter: number;
-    hacker: number;
-    thief: number;
-    hitter: number;
-    mastermind: number;
-}
-interface Attributes {
-    agility: number;
-    intelligence: number;
-    strength: number;
-    willpower: number;
-    vitality: number;
-    alertness: number;
-}
-interface Scene {
-  description: string;
-  difficulty: number;
-  sceneId: number;
-}
-interface Character {
-  name: string;
-  description: string;
-  roles: Role;
-  attributes: Attributes;
-  specialItem?: string;
-  npcId?: number;
-  motivation?: string;
-  job?: string;
-  imageConfig?: any;
-}
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+            </Head>
+            <div className="ui container">
 
-interface Episode {
-   description: string;
-   villian: Character;
-   mcguffin: string;
-   missionId: number;
-}
+                <div className="ui grid">
+                    <div className="ui row">
 
-type FormValues = {
-    description: string
-}
-type FormValues2 = {
-    job:string,
-    alignment:string
-}
-type FormValues3 = {
-    location: string
-}
-
-export default function Home() {
-  const [characters, setCharacters] = useState<Character[] >([])
-  const [curEpisode, setEpisodes] = useState<Episode | null>(null );
-  const [scenes, setScenes] = useState<Scene[] >([]);
-  const { register, handleSubmit} = useForm<FormValues>();
-  const { register: register2, handleSubmit: handleSubmit2 } = useForm<FormValues2>();
-  const { register: register3, handleSubmit: handleSubmit3  } = useForm<FormValues3>();
-  const episodeCreater = async (data : FormValues) => {
-    const episode = await createEpisode(data.description);
-    const villianForEpisode : Character = {
-        name: "",
-        description: episode.villian,
-        attributes: episode.attributes,
-        roles: episode.roles,
-        imageConfig: genConfig(episode.villian)
-    }
-    characters.push(villianForEpisode);
-    const episdeInfo : Episode = {
-        description: episode.description,
-        villian: villianForEpisode,
-        mcguffin: episode.mcguffin,
-        missionId: episode.missionId,
-    }
-    setEpisodes(episdeInfo);
-
-
-  }
-  const characterCreater = async (data : FormValues2) => {
-    const character = await createCharacter(data.job, data.alignment);
-    character.imageConfig = genConfig(character.name)
-    setCharacters([...characters, character])
-  }
-
-  const sceneCreater = async (data : FormValues3 ) => {
-     const scene = await createScene(data.location);
-     setScenes([...scenes, scene]);
-  }
-  return (
-    <div>
-      <h1>Cortext Prime NPC Generater</h1>
-        <form onSubmit={handleSubmit(episodeCreater)}>
-            <label>Episode Description</label>
-            <div className="ui input">
-                <input {...register('description')}  placeholder="Description..."/>
-            </div>
-            <button type="submit" className="ui primary button">Create Episode</button>
-        </form>
-        <form onSubmit={handleSubmit2(characterCreater)}>
-            <label>Character Job</label>
-            <div className="ui input">
-                <input {...register2('job')}  />
-            </div>
-            <label>Character Alignment</label>
-            <div className="ui input">
-                 <input {...register2('alignment')} />
-            </div>
-            <button type="submit" className="ui primary button">Create Character</button>
-        </form>
-        <form onSubmit={handleSubmit3(sceneCreater)}>
-            <label>Scene Location</label>
-            <div className="ui input">
-                <input {...register3('location')}  />
-            </div>
-            <button type="submit" className="ui primary button">Create Scene</button>
-        </form>
-        <h2>Episodes</h2>
-        <ul>
-            {curEpisode && <li>{curEpisode.description}</li>}
-        </ul>
-        <div className="ui divider"></div>
-        <h2>Characters</h2>
-        <ul>
-            {characters.map((character, index) => (
-                <div className="ui card" key={character.name}>
-                    <div className="image">
-                        <Avatar {...character.imageConfig}  />
-                    </div>
-                    <div className="content">
-                        <a className="header">{character.name}</a>
-                        <div className="meta">
-                            <span className="date">{character.job}</span>
+                        <div className="three wide column">
+                            <Image src="/headshot.png" alt="Bradford Allen Rodgers-Farmer"
+                                   width={150} height={150}
+                                   className="ui small circular image"/>
                         </div>
-                        <div className="description">
-                            {character.description}
-                        </div>
-                        <div className="description">
-                            Special Item: {character.specialItem}
-                        </div>
-                    </div>
-                    <div className="extra content">
 
-                        {Object.keys(character.attributes).map((key, index) => (
-                            <div key={index}>
-                                <span>{key}</span>
-                                <span>d{character.attributes[key as keyof Attributes]}</span>
-                            </div>
-                        ))}
-                        {Object.keys(character.roles).map((key, index) => (
-                            <div key={index}>
-                                <span>{key}</span>
-                                <span>d{character.roles[key as keyof Role]}</span>
-                            </div>
-                        ))}
+                        <div className="thirteen wide column">
+                            <h1 className="ui header" style={{paddingTop: '60px'}}>My name is Bradford Allen
+                                Rodgers-Farmer</h1>
+                            <p>I am a professional software engineer with a master’s degree in computer engineering and business. My
+                                passion is developing new tools and business methods to enhance a company's marketability and
+                                workflow processes. I also have expertise in PCI security practices. Currently, I am working as a
+                                principal software engineer and developer at The Muse formerly Fairygodboss. I would love to hear
+                                from you!</p>
+                        </div>
                     </div>
                 </div>
-            ))}
-        </ul>
-        <div className="ui divider"></div>
 
+                <h2 className="ui dividing header">My Resume</h2>
+                <p>Here is a link to my resume:</p>
+                <Link className="ui button" href="/resume">Resume</Link>
 
-    </div>
-  );
-}
+                <h2 className="ui dividing header">My Projects</h2>
+                <p>Here are links to some of the projects I have worked on:</p>
+                <div className="ui list">
+                    <div className="item"><Link className="ui button" href="/cortexPrimeCreator">Cortex AI NPC Generator</Link></div>
+                </div>
+
+                <h2 className="ui dividing header">My TikTok Videos</h2>
+                <p>Here are links to some of my TikTok videos:</p>
+                <div className="ui relaxed list">
+                    <div className="item">
+                        <blockquote className="tiktok-embed"
+                                    cite="https://www.tiktok.com/@truebelvira/video/7344485963726376222"
+                                    data-video-id="7344485963726376222" style={{maxWidth:'605px', minWidth:'305px'}}>
+                            <section>
+                                <a target="_blank" title="@truebelvira"
+                                   href="https://www.tiktok.com/@truebelvira?refer=embed">@truebelvira</a> Bias in large
+                                language models
+                                <a title="llm" target="_blank"
+                                   href="https://www.tiktok.com/tag/llm?refer=embed">#llm</a>
+                                <a title="ai" target="_blank" href="https://www.tiktok.com/tag/ai?refer=embed">#ai</a>
+                                <a title="largelanguagemodels" target="_blank"
+                                   href="https://www.tiktok.com/tag/largelanguagemodels?refer=embed">#largelanguagemodels</a>
+                                <a title="chatgpt" target="_blank"
+                                   href="https://www.tiktok.com/tag/chatgpt?refer=embed">#chatgpt</a>
+                                <a target="_blank" title="♬ original sound - Belvira farmer"
+                                   href="https://www.tiktok.com/music/original-sound-7344486109294529310?refer=embed">♬
+                                    original sound - Belvira farmer</a>
+                            </section>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
