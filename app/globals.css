@@ -1,50 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-.ui.header {
-  color: rgb(var(--foreground-rgb));
-}
-.ui.segment {
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-.dimmer{
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  z-index: 1000;
+  background-color: #1b1c1d; /* Semantic UI default dark background */
+  color: #ffffff; /* white text color for dark background */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Custom primary button color */
+.ui.primary.button, .ui.buttons .primary.button {
+  background-color: #add8e6; /* light blue */
+  color: #ffffff; /* white text color */
+}
+
+/* On hover state for primary button */
+.ui.primary.button:hover, .ui.buttons .primary.button:hover {
+  background-color: #9cc4d8; /* slightly darker light blue for hover effect */
+}
+
+/* Active state for primary button */
+.ui.primary.button:active, .ui.buttons .primary.button:active {
+  background-color: #80b2d3; /* even darker light blue for active/click effect */
+}
+
+/* Override Semantic UI's default box shadow for dark mode compatibility */
+.ui.button {
+  box-shadow: none !important;
 }
