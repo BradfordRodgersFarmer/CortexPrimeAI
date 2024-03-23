@@ -156,13 +156,13 @@ export default function Page() {
                             </div>
                             <div className="extra content">
                                 {Object.keys(character.attributes).map((key, index) => (
-                                    <div key={index}>
-                                        <strong>{key}:</strong> d{character.attributes[key]}
+                                    <div key={`${key}-${index}`}>
+                                        <strong>{key}:</strong> d{character.attributes[key as keyof Attributes]}
                                     </div>
                                 ))}
                                 {Object.keys(character.roles).map((key, index) => (
-                                    <div key={index}>
-                                        <strong>{key}:</strong> d{character.roles[key]}
+                                    <div key={`${key}-${index}`}>
+                                        <strong>{key}:</strong> d{character.roles[key as keyof Role]}
                                     </div>
                                 ))}
                             </div>
