@@ -2,17 +2,31 @@
 body {
   background-color: #1b1c1d; /* Semantic UI default dark background */
   color: #ffffff; /* white text color for dark background */
-}
 
+}
+.ui.header {
+  color: #ffffff!important;
+}
+.ui.dividing.header{
+  border-color: #3d3e3f!important;
+}
+.nameLabel{
+  padding-top:60px!important;
+}
+.ui.segment {
+  background-color: #2c2d2e !important;
+  color: #ffffff !important;
+  border-top: 1px solid #3d3e3f !important;
+}
 /* Custom primary button color */
 .ui.primary.button, .ui.buttons .primary.button {
-  background-color: #add8e6; /* light blue */
+  background-color: #437a8c; /* light blue */
   color: #ffffff; /* white text color */
 }
 
 /* On hover state for primary button */
 .ui.primary.button:hover, .ui.buttons .primary.button:hover {
-  background-color: #9cc4d8; /* slightly darker light blue for hover effect */
+  background-color: #548d9f; /* slightly darker light blue for hover effect */
 }
 
 /* Active state for primary button */
@@ -23,4 +37,10 @@ body {
 /* Override Semantic UI's default box shadow for dark mode compatibility */
 .ui.button {
   box-shadow: none !important;
+}
+
+@media screen and (max-width: 768px){
+  .nameLabel{
+    padding-top:5px!important;
+  }
 }
