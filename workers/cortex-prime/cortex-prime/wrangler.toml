@@ -1,0 +1,18 @@
+name = "cortex-prime"
+main = "src/index.js"
+compatibility_date = "2024-03-09"
+workers_dev = true
+
+[ai]
+binding = "AI"
+
+[unsafe]
+  [[unsafe.bindings]]
+  database_id = "08cb77d0-7306-4441-a01f-9b5d52345bdc"
+  name = "DB"
+  type = "d1"
+
+  [[unsafe.bindings]]
+  index_name = "vector-index"
+  name = "VECTOR_INDEX"
+  type = "vectorize"

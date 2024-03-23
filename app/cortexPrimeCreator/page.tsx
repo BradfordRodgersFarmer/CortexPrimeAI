@@ -61,17 +61,22 @@ export default function Page() {
     const [characters, setCharacters] = useState<Character[] >([])
     const [curEpisode, setEpisodes] = useState<Episode | null>(null );
     const [scenes, setScenes] = useState<Scene[] >([]);
+    const [missionId, setMissionId] = useState<number>(1);
+    const [loading, setLoading] = useState<boolean>(false);
     const { register, handleSubmit} = useForm<FormValues>();
     const { register: register2, handleSubmit: handleSubmit2 } = useForm<FormValues2>();
     const { register: register3, handleSubmit: handleSubmit3  } = useForm<FormValues3>();
     const episodeCreator = async (data : FormValues) => {
+        setLoading(true);
         const episode = await createEpisode(data.description);
+        setMissionId(parseInt(episode.missionId));
         const villianForEpisode : Character = {
             name: "",
-            description: episode.villian,
+            description: episode.villain,
             attributes: episode.attributes,
+            job: 'Main Villian',
             roles: episode.roles,
-            imageConfig: genConfig(episode.villian)
+            imageConfig: genConfig(episode.villain)
         }
         characters.push(villianForEpisode);
         const episdeInfo : Episode = {
@@ -81,20 +86,28 @@ export default function Page() {
             missionId: episode.missionId,
         }
         setEpisodes(episdeInfo);
+        setLoading(false);
     }
     const characterCreator = async (data : FormValues2) => {
-        const character = await createCharacter(data.job, data.alignment);
+        setLoading(true);
+        const character = await createCharacter(data.job, data.alignment, missionId);
         character.imageConfig = genConfig(character.name)
         setCharacters([...characters, character])
+        setLoading(false);
     }
 
     const sceneCreator = async (data : FormValues3 ) => {
-        const scene = await createScene(data.location);
+        setLoading(true);
+        const scene = await createScene(data.location, missionId);
         setScenes([...scenes, scene]);
+        setLoading(false);
     }
     
     return (
         <div>
+            <div className={`ui ${loading ? 'active' : ''} dimmer`}>
+                <div className="ui large text loader">Loading</div>
+            </div>
             <div className="ui container">
                 <Head>
                     <meta charSet="UTF-8"/>

@@ -25,6 +25,23 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.ui.header {
+  color: rgb(var(--foreground-rgb));
+}
+.ui.segment {
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+.dimmer{
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
 
 @layer utilities {
   .text-balance {

@@ -6,23 +6,28 @@ const baseHeader = {
     },
 };
 
-export const createCharacter = async (npcjob, alignment) => {
+export const createCharacter = async (npcjob, alignment, missionId) => {
     const headers = baseHeader
     headers.body = JSON.stringify({ npcjob, alignment });
     const response = await fetch(`${baseUrl}/generateNpc`, headers);
-    return response.json();
+    return await response.json();
 }
 
-export const createScene = async (location) => {
+export const createScene = async (location, missionId) => {
     const headers = baseHeader
     headers.body = JSON.stringify({ location });
     const response = await fetch(`${baseUrl}/generateScene`, headers);
-    return response.json();
+    return await response.json();
 }
 
 export const createEpisode = async (episode) => {
     const headers = baseHeader
-    headers.body = JSON.stringify({ episode });
-    const response = await fetch(`${baseUrl}/generateEpisode`, headers);
-    return response.json();
+    headers.body = JSON.stringify({ basicInfo:episode });
+    try{
+        const response = await fetch(`${baseUrl}/generateEpisode`, headers);
+
+        return await response.json();
+    }catch (e) {
+        console.error(e);
+    }
 }
