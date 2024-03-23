@@ -51,7 +51,7 @@ export default function Page() {
                 <div className="ui relaxed list">
                     <div className="item">
                         <iframe
-                            src="https://www.tiktok.com/embed/7344485963726376222"
+                            src="https://www.tiktok.com/embed/7349690896402763038"
                             style={{maxWidth:'605px', minWidth:'305px', height:'600px'}}
                             allowFullScreen
                             allow="encrypted-media;"
