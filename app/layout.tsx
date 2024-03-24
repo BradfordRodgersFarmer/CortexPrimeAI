@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Cortext Prime NPC Generater",
-  description: "A tool for generating NPCs for the Cortext Prime RPG system",
+  title: "Bradford Allen Rodgers-Farmer Personal site",
+  description: "A list of projects and resume for Bradford Allen Rodgers-Farmer",
 };
 
 export default function RootLayout({
