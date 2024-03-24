@@ -9,7 +9,7 @@ const app = new Hono();
 app.use(
 		'/*',
 		cors({
-				origin: ['https://b1443379.cortexprimeai.pages.dev', 'http://localhost:3002', 'https://b1443379.cortexprimeai.pages.de'],
+				origin: ['https://bradfordrodgersfarmer.us', 'http://localhost:3002', 'https://cortexprimeai.pages.dev'],
 				allowMethods: ['POST', 'GET', 'OPTIONS'],
 		})
 );
