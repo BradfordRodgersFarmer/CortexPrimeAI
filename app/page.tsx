@@ -47,10 +47,10 @@ export default function Page() {
                 </div>
                 <h2 className="ui dividing header">Companies was a developer for: </h2>
                 <div className="ui list">
-                    <div className="item"><Link className="ui button primary" href="https://fairygodboss.com">Fairygodboss</Link> : helped to develop their email services, migrated the application over to nextjs , upgraded their jobs page and article pages for web optimization</div>
+                    <div className="item"><Link className="ui button primary" href="https://fairygodboss.com">Fairygodboss</Link> : Developed their email services, migrated the application over to nextjs , upgraded their jobs page and article pages for web optimization</div>
                 </div>
                 <div className="ui list">
-                    <div className="item"><Link className="ui button primary" href="https://shoppable.com">Shoppable</Link> : helped develop the core technologies behind their checkout systems, worked to make sure all systems were pci comipliant and certified. </div>
+                    <div className="item"><Link className="ui button primary" href="https://shoppable.com">Shoppable</Link> : Developed the core technologies behind their checkout systems, worked to make sure all systems were pci comipliant and certified. </div>
                 </div>
 
                 <h2 className="ui dividing header">My TikTok Videos</h2>
