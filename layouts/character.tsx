@@ -1,7 +1,7 @@
 import Avatar from 'react-nice-avatar';
 import { Attributes, Role, Character, Episode  } from '../configs/interfaces';
 
-export const CharactersList = ({characters , episode} : {characters:Character[], episode: Episode}) => {
+export const CharactersList = ({characters , episode} : {characters:Character[], episode: Episode|null}) => {
     return (
         <div className="ui cards">
             {characters.map((character, index) => (
