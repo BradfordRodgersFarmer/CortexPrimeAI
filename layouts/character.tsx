@@ -17,7 +17,7 @@ export const CharactersList = ({characters , episode} : {characters:Character[],
                         <div className="ui fade reveal">
                             <div className="visible content description">
                                     {character.description}
-                                    <p>Special Item: {character.specialItem || episode.mcguffin}</p>
+                                    <p>Special Item: {character.specialItem || episode?.mcguffin}</p>
 
                             </div>
                             <div className="hidden content ">
