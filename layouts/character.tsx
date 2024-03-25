@@ -1,5 +1,5 @@
 import Avatar from 'react-nice-avatar';
-import { Attribues, Role  } from '../configs/interfaces';
+import { Attributes, Role  } from '../configs/interfaces';
 
 export const CharactersList = ({characters, episode}) => {
     return (
