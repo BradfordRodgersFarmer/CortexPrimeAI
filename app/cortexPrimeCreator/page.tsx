@@ -2,60 +2,12 @@
 import { useForm } from 'react-hook-form';
 import Head from 'next/head';
 import Link from 'next/link';
-import Avatar, { genConfig } from 'react-nice-avatar'
-
+import  { genConfig } from 'react-nice-avatar';
+import { Character, Episode, Scene, FormValues, FormValues2, FormValues3  } from '../../configs/interfaces';
+import { CharactersList } from '../../layouts/character';
 import { createCharacter, createEpisode, createScene } from '@/queries/character'
-import {useState} from "react";
+import { useState } from "react";
 
-interface Role {
-    grifter: number;
-    hacker: number;
-    thief: number;
-    hitter: number;
-    mastermind: number;
-}
-interface Attributes {
-    agility: number;
-    intelligence: number;
-    strength: number;
-    willpower: number;
-    vitality: number;
-    alertness: number;
-}
-interface Scene {
-    description: string;
-    difficulty: number;
-    sceneId: number;
-}
-interface Character {
-    name: string;
-    description: string;
-    roles: Role;
-    attributes: Attributes;
-    specialItem?: string;
-    npcId?: number;
-    motivation?: string;
-    job?: string;
-    imageConfig?: any;
-}
-
-interface Episode {
-    description: string;
-    villian: Character;
-    mcguffin: string;
-    missionId: number;
-}
-
-type FormValues = {
-    description: string
-}
-type FormValues2 = {
-    job:string,
-    alignment:string
-}
-type FormValues3 = {
-    location: string
-}
 
 export default function Page() {
     const [characters, setCharacters] = useState<Character[] >([])
@@ -92,6 +44,7 @@ export default function Page() {
         setLoading(true);
         const character = await createCharacter(data.job, data.alignment, missionId);
         character.imageConfig = genConfig(character.name)
+        character.job = data.job;
         setCharacters([...characters, character])
         setLoading(false);
     }
@@ -151,37 +104,7 @@ export default function Page() {
                 <div className="ui divider"></div>
 
                 <h2 className="ui header">Characters</h2>
-                <div className="ui cards">
-                    {characters.map((character, index) => (
-                        <div className="card" key={character.name}>
-                            <div className="image">
-                                <Avatar {...character.imageConfig} />
-                            </div>
-                            <div className="content">
-                                <a className="header">{character.name}</a>
-                                <div className="meta">
-                                    <span>{character.job}</span>
-                                </div>
-                                <div className="description">
-                                    {character.description}
-                                    <p>Special Item: {character.specialItem}</p>
-                                </div>
-                            </div>
-                            <div className="extra content">
-                                {Object.keys(character.attributes).map((key, index) => (
-                                    <div key={`${key}-${index}`}>
-                                        <strong>{key}:</strong> d{character.attributes[key as keyof Attributes]}
-                                    </div>
-                                ))}
-                                {Object.keys(character.roles).map((key, index) => (
-                                    <div key={`${key}-${index}`}>
-                                        <strong>{key}:</strong> d{character.roles[key as keyof Role]}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <CharactersList characters={characters} episode={curEpisode}/>
 
                 <div className="ui divider"></div>
             </div>

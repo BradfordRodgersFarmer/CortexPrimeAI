@@ -35,6 +35,7 @@ app.post('/generateEpisode', async (c) => {
 		const messages = [
 				{ role: "system", content: `You are creating an episode with the genre of Leverage for a ttrpg` },
 				{ role: "system", content: `here is some addition info about the episode:  ${basicInfo}` },
+				{ role: "system", content: `You want to return a response with out any formalities` },
 				{ role: "user", content: `what is the name of the episode. what is the main conflict of the episode. what is the resolution of the episode. what is the twist of the episode.` },
 		];
 		const response = await ai.run('@cf/meta/llama-2-7b-chat-int8',
@@ -48,15 +49,19 @@ app.post('/generateEpisode', async (c) => {
 				{
 						messages: [
 								{ role: "system", content: `You are creating a villain for the episode` },
-								{ role: "user", content: `what is the name of the villain. what is the villain's motivation. what is the villain's plan. what is the villain's weakness.` },
+								{ role: "system", content: `You know ${response.response}` },
+								{ role: "system", content: `You want to return a response with out any formalities` },
+								{ role: "user", content: `what is the name of the villain.` },
 						]
 				});
 
 		const mcguffin = await ai.run('@cf/meta/llama-2-7b-chat-int8',
 				{
 						messages: [
-								{ role: "system", content: `You are creating a mcguffin for the episode` },
-								{ role: "user", content: `what is the name of the mcguffin. what is the mcguffin's history. what is the mcguffin's power. what is the mcguffin's weakness.` },
+								{ role: "system", content: `You are creating a mcguffin for ${villain.response}` },
+								{ role: "system", content: `You know ${response.response}` },
+								{ role: "system", content: `You want to return a response with out any formalities` },
+								{ role: "user", content: `what is the name of the mcguffin the villian has.` },
 						]
 				});
 
@@ -87,6 +92,7 @@ app.post('/generateScene') , async (c) => {
 		const ai = new Ai(c.env.AI);
 		const messages = [
 				{ role: "system", content: `You are creating a scene for the episode` },
+				{ role: "system", content: `You want to return a response with out any formalities` },
 				{ role: "user", content: `what are some details about a scene in the following location ${location}` },
 		];
 		const response = await ai.run('@cf/meta/llama-2-7b-chat-int8',
@@ -123,18 +129,17 @@ app.post('/generateNpc', async (c) => {
 				return;
 		}
 		const missionInfo = data.results[0];
-
-
 		const messages = [
 				{ role: "system", content: missionInfo.missionInfo },
 				{ role: "system", content: basicInfo },
 				{ role: "system", content: `You are creating an NPC with the job of ${npcjob}` },
+				{ role: "system", content: `You want to return a response with out any formalities` },
 				{ role: "system", content: aboutLeverage.description},
 				{ role: "system", content: `the npc want to ${alignment} the crew `},
 		];
 		messages.push({ role: "system", content: `the npc works for the villain ${missionInfo.villain}`});
 		messages.push(
-				{ role: "user", content: `what is the name of a npc has the job of ${npcjob}.` })
+				{ role: "user", content: `what is the name of a npc that has the job of ${npcjob}.` })
 		// add the npc to the vector database
 
 		const name = await ai.run('@cf/meta/llama-2-7b-chat-int8',
@@ -145,21 +150,9 @@ app.post('/generateNpc', async (c) => {
 				{
 						messages: [
 								{ role: "system", content: `You are creating a description for the npc` },
+								{ role: "system", content: `You know this about the npc ${name.response}` },
+								{ role: "system", content: `You want to return a response with out any formalities` },
 								{ role: "user", content: `what is the description of this npc` },
-						]
-				});
-		const motivation = await ai.run('@cf/meta/llama-2-7b-chat-int8',
-				{
-						messages: [
-								{ role: "system", content: `You are creating a motivation for the npc` },
-								{ role: "user", content: `what motivates this npc` },
-						]
-				});
-		const job = await ai.run('@cf/meta/llama-2-7b-chat-int8',
-				{
-						messages: [
-								{ role: "system", content: `You are creating a job for the npc` },
-								{ role: "user", content: `what is the job of this npc` },
 						]
 				});
 
@@ -167,19 +160,20 @@ app.post('/generateNpc', async (c) => {
 				{
 						messages: [
 								{ role: "system", content: `You are creating a special item for the npc` },
+								{ role: "system", content: `You know this about the npc ${name.response}` },
+								{ role: "system", content: `You know this about the npc ${description.response}` },
+								{ role: "system", content: `You want to return a response with out any formalities` },
 								{ role: "user", content: `what special item does this npc have on them that a player might be intrested in.` },
 						]
 				});
 
-		const { results } = await c.env.DB.prepare("INSERT INTO NPCs (name, description, motivation, job, specialItem, missionId) VALUES (?, ?, ?, ?, ?,?) RETURNING *").bind(name, description, motivation, job, specialItem, missionId).run();
+		const { results } = await c.env.DB.prepare("INSERT INTO NPCs (name, description, specialItem, missionId) VALUES (?, ?, ?, ?) RETURNING *").bind(name.response, description.response, specialItem.response, missionId).run();
 		return c.json({
 				name: name.response,
 				description: description.response,
-				motivation: motivation.response,
 				roles: randomizeRoles(),
+				specialItem: specialItem.response,
 				attributes: randomizeAttributes(),
-				job: job.response,
-				specialItem : job.specialItem,
 				npcId: results[0].id,
 		});
 
@@ -188,7 +182,5 @@ app.post('/generateNpc', async (c) => {
 app.onError((err, c) => {
 		return c.text(err)
 });
-
-
 
 export default app;

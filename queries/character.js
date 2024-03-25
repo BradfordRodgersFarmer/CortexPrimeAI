@@ -8,14 +8,14 @@ const baseHeader = {
 
 export const createCharacter = async (npcjob, alignment, missionId) => {
     const headers = baseHeader
-    headers.body = JSON.stringify({ npcjob, alignment });
+    headers.body = JSON.stringify({ npcjob, alignment, missionId });
     const response = await fetch(`${baseUrl}/generateNpc`, headers);
     return await response.json();
 }
 
 export const createScene = async (location, missionId) => {
     const headers = baseHeader
-    headers.body = JSON.stringify({ location });
+    headers.body = JSON.stringify({ location, missionId });
     const response = await fetch(`${baseUrl}/generateScene`, headers);
     return await response.json();
 }

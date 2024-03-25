@@ -1,7 +1,7 @@
 
 body {
-  background-color: #1b1c1d; /* Semantic UI default dark background */
-  color: #ffffff; /* white text color for dark background */
+  background-color: #1b1c1d!important; /* Semantic UI default dark background */
+  color: #ffffff!important; /* white text color for dark background */
 
 }
 .ui.header {
@@ -43,4 +43,18 @@ body {
   .nameLabel{
     padding-top:5px!important;
   }
+}
+.character{
+  color: #1b1c1d!important;
+}
+.description{
+  background-color: white;
+  height: 100%;
+}
+label{
+  color: #ffffff!important;
+}
+
+.card{
+  min-height: 500px!important;
 }
