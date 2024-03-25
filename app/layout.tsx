@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google"
 import 'semantic-ui-css/semantic.min.css'
 import "./globals.css";
 
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
+      <GoogleAnalytics gaId="G-P96R9CMZ70" />
     </html>
   );
 }
