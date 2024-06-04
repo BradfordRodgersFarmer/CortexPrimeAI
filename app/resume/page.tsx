@@ -132,16 +132,15 @@ export default function Page(){
                     GCP, Azure, LLAMA 2.
                 </div>
             </div>
-                <h2 className="ui header">Education</h2>
-                <div className="ui list">
-                    <div className="item">
-                        M.E Computer and Electrical Engineering, Rutgers University, 2011<br/>
-                        New Brunswick, New Jersey
-                    </div>
-                    <div className="item">
-                        B.E Computer and Electrical Engineering, Rutgers University, 2007<br/>
-                        New Brunswick, New Jersey
-                    </div>
+            <h2 className="ui header">Education</h2>
+            <div className="ui list">
+                <div className="item">
+                    M.E Computer and Electrical Engineering, Rutgers University, 2011<br/>
+                    New Brunswick, New Jersey
+                </div>
+                <div className="item">
+                    B.E Computer and Electrical Engineering, Rutgers University, 2007<br/>
+                    New Brunswick, New Jersey
                 </div>
             </div>
         </div>
