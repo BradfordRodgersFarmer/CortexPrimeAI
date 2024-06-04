@@ -134,7 +134,7 @@ export default function Page(){
                 </div>
                 <h2 className="ui header">Education</h2>
                 <div className="ui segments">
-                    <div className="segment">
+                    <div className="ui segment">
                         <div className="ui list">
                             <div className="item">
                                 M.E Computer and Electrical Engineering, Rutgers University, 2011<br/>
