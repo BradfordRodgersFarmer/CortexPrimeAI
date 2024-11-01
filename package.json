@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cloudflare/ai": "^1.1.0",
+    "@cloudflare/ai": "^1.1.0n",
     "@next/third-parties": "14.1.4",
     "hono": "^4.0.10",
     "next": "14.1.3",
@@ -17,6 +17,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.51.0",
     "react-nice-avatar": "^1.5.0",
+    "react-pageflip": "^2.0.3",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.5"
   },

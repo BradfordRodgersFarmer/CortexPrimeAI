@@ -14,3 +14,7 @@ index_name = "vector-index"
 binding = "DB"
 database_name = "leverage-ttrpg"
 database_id = "08cb77d0-7306-4441-a01f-9b5d52345bdc"
+
+[observability]
+enabled = true
+head_sampling_rate = 1
