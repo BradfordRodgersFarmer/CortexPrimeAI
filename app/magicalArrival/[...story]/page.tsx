@@ -1,5 +1,6 @@
 import { findStory } from '@/queries/magicalArrivalQueries';
 import { Bookpage } from '@/layouts/bookpage';
+export const runtime = 'edge';
 export default async function Page({params} : {params:{ story: string[] } })  {
     const {pages, bookInfo} = await findStory(params.story[1]);
     return (
