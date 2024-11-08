@@ -1,13 +1,13 @@
 'use client'
 import React, {useState} from 'react';
-interface  pages {
-    page: string[]
+interface  Pages {
+    page: Array<string>
 }
-interface bookInfo {
+interface BookInfo {
     bookTitle: string
     playerName: string
 }
-export const Bookpage = ({ pages, bookInfo } : {pages: pages, bookInfo:bookInfo }) => {
+export const Bookpage = ({ pages, bookInfo } : {pages: Pages[], bookInfo:BookInfo }) => {
     const [currentPage, setCurrentPage] = useState<number>(0);
     return (
         <>
