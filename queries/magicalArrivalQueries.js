@@ -20,11 +20,11 @@ export const takeAction = async (action, missionId, cardPulled) => {
     return await response.json();
 }
 
-export const createEpisode = async (episode) => {
+export const findStory = async (missionId) => {
     const headers = baseHeader
-    headers.body = JSON.stringify({ basicInfo:episode });
+    headers.body = JSON.stringify({ missionId });
     try{
-        const response = await fetch(`${baseUrl}/generateEpisode`, headers);
+        const response = await fetch(`${baseUrl}/magicalArrivalFindStory`, headers);
 
         return await response.json();
     }catch (e) {

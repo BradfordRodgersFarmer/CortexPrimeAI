@@ -194,7 +194,7 @@ body {
   line-height: 1.5;
 }
 
-.open-book article *:not(.chapter-title):not(hr):not(dl):not(.rounded-full):not(.textarea) {
+.open-book article *:not(.chapter-title):not(hr):not(dl):not(.rounded-full):not(.textarea):not(.useMargin) {
   margin: 0 auto;
   max-width: 28.125em;
 }

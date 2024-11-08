@@ -9,7 +9,7 @@ export const baseCortexPrimeInfo = {
 				' trait or skill. You keep the highest two dice and add them together. ' +
 				'If you roll a 1 on any die, you get a Plot Point. You can spend Plot ' +
 				'Points to add extra dice to your roll, or to activate special abilities. ' +
-				'You can also spend Plot Points to create story details, or to introduce ' +
+				'You can also spend Plot Points to create [...story] details, or to introduce ' +
 				'complications. The GM can also give you Plot Points when you roll a 1, ' +
 				'or when you accept a complication. The GM can spend Plot Points to ' +
 				'introduce complications, or to activate special abilities',
