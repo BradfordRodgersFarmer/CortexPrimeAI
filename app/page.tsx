@@ -47,8 +47,12 @@ export default function Page() {
                 <h2 className="ui dividing header">My Projects</h2>
                 <p>Here are links to some of the projects I have worked on:</p>
                 <div className="ui list">
+                    <div className="item"><Link className="ui button primary" href="https://bradfordrodgersfarmer.us/magicalArrival">Magical Arrival ai storybased ttprg
+                    </Link></div>
+                </div>
+                <div className="ui list">
                     <div className="item"><Link className="ui button primary" href="https://tcg-wallet.com">TCG Wallet
-                        </Link></div>
+                    </Link></div>
                 </div>
                 <div className="ui list">
                     <div className="item"><Link className="ui button primary" href="/cortexPrimeCreator">Cortex AI NPC
