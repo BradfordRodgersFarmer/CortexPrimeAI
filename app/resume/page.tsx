@@ -5,7 +5,7 @@ import styles from "../portfolio.module.css";
 export const metadata: Metadata = {
   title: "Resume | Bradford Allen Rodgers-Farmer",
   description:
-    "Resume of Bradford Allen Rodgers-Farmer, Principal Software Engineer: experience, projects, skills, and education.",
+    "Resume of Bradford Allen Rodgers-Farmer, Senior Software Engineer at PEI: experience, projects, skills, and education.",
 };
 
 function CheckIcon() {
@@ -17,7 +17,7 @@ function CheckIcon() {
 }
 
 const ACCOMPLISHMENTS = [
-  "Saved $150K per year at The Muse by consolidating services after the Fairygodboss acquisition",
+  "Saved $150K per year at Fairygodboss through consolidation of cloud services",
   "Improved page speed of Fairygodboss by 80 percent",
   "Helped design and create the Shoppable Video service, later sold to Unilever and GSK",
   "Worked with large online retailers to integrate their APIs into our checkout flow",
@@ -73,7 +73,7 @@ export default function Page() {
             </Link>
             <h1>Resume</h1>
             <p className={styles.sub}>
-              Bradford Allen Rodgers-Farmer | Principal Software Engineer |
+              Bradford Allen Rodgers-Farmer | Senior Software Engineer |
               bradfordrodgersfarmer@gmail.com
             </p>
           </div>
@@ -138,9 +138,44 @@ export default function Page() {
           <article className={styles.job}>
             <div className={styles.jobHead}>
               <h3>
-                Principal Software Engineer <span>@ The Muse / Fairygodboss</span>
+                Senior Software Engineer <span>@ PEI</span>
               </h3>
-              <span className={styles.period}>May 2020 to Present</span>
+              <span className={styles.period}>Sep 2026 to Present</span>
+            </div>
+            <ul>
+              <li>Full-time, hybrid role based in New York, United States</li>
+            </ul>
+          </article>
+
+          <article className={styles.job}>
+            <div className={styles.jobHead}>
+              <h3>
+                Technical Engineering Manager <span>@ Fortune</span>
+              </h3>
+              <span className={styles.period}>Jul 2025 to Present</span>
+            </div>
+            <ul>
+              <li>
+                Promoted from Technical Lead (Mar 2025 to Jul 2025) after joining as
+                Senior Software Engineering Consultant (Nov 2024 to Mar 2025, contract)
+              </li>
+              <li>
+                Helping the Fortune Media team modernize with best engineering and
+                development practices
+              </li>
+              <li>
+                Improving the core web product and ad product to increase customer
+                acquisition and retention rates
+              </li>
+            </ul>
+          </article>
+
+          <article className={styles.job}>
+            <div className={styles.jobHead}>
+              <h3>
+                Principal Software Engineer <span>@ Fairygodboss</span>
+              </h3>
+              <span className={styles.period}>May 2021 to May 2024</span>
             </div>
             <ul>
               <li>Responsible for managing the development of new features and new products</li>
@@ -172,9 +207,10 @@ export default function Page() {
               <h3>
                 Principal Software Engineer <span>@ Shoppable</span>
               </h3>
-              <span className={styles.period}>2015 to May 2020</span>
+              <span className={styles.period}>Nov 2016 to May 2021</span>
             </div>
             <ul>
+              <li>Joined as Lead Software Developer (Dec 2015 to Nov 2016)</li>
               <li>Developed Shoppable Video, later sold to Unilever and GSK</li>
               <li>Set up microservices to run checkout</li>
               <li>Kept all products PCI compliant and certified</li>
@@ -199,9 +235,9 @@ export default function Page() {
           <article className={styles.job}>
             <div className={styles.jobHead}>
               <h3>
-                Lead Mobile Developer <span>@ Propeller Communications</span>
+                Lead Developer <span>@ Propeller Communications</span>
               </h3>
-              <span className={styles.period}>2011 to 2014</span>
+              <span className={styles.period}>Dec 2011 to Dec 2015</span>
             </div>
             <ul>
               <li>

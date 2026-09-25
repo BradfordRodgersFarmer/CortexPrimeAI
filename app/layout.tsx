@@ -7,9 +7,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 const SITE_URL = "https://bradfordrodgersfarmer.us";
-const SITE_NAME = "Bradford Allen Rodgers-Farmer | Principal Software Engineer";
+const SITE_NAME = "Bradford Allen Rodgers-Farmer | Senior Software Engineer";
 const SITE_DESCRIPTION =
-  "Portfolio and resume of Bradford Allen Rodgers-Farmer, Principal Software Engineer specializing in Next.js, cloud architecture, PCI-compliant checkout systems, and AI-powered tools.";
+  "Portfolio and resume of Bradford Allen Rodgers-Farmer, Senior Software Engineer at PEI, specializing in Next.js, cloud architecture, PCI-compliant checkout systems, and AI-powered tools.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -21,12 +21,13 @@ export const metadata: Metadata = {
   keywords: [
     "Bradford Allen Rodgers-Farmer",
     "Bradford Rodgers-Farmer",
-    "Principal Software Engineer",
+    "Senior Software Engineer",
     "Next.js developer",
     "React developer",
     "PCI compliance",
     "cloud architecture",
-    "The Muse",
+    "PEI",
+    "Fortune",
     "Fairygodboss",
     "Shoppable",
     "portfolio",
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Bradford Allen Rodgers-Farmer, Principal Software Engineer",
+        alt: "Bradford Allen Rodgers-Farmer, Senior Software Engineer",
       },
     ],
   },
