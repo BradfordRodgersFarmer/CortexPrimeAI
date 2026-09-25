@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cloudflare/ai": "^1.1.0n",
-    "@next/third-parties": "14.1.4",
+    "@cloudflare/ai": "^1.2.2",
+    "@next/third-parties": "14.2.35",
     "hono": "^4.0.10",
-    "next": "14.1.3",
+    "next": "14.2.35",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.0",
@@ -27,7 +27,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "14.1.3",
+    "eslint-config-next": "14.2.35",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5",

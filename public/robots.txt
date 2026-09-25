@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /uitest
+
+Sitemap: https://bradfordrodgersfarmer.us/sitemap.xml

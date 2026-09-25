@@ -10,6 +10,37 @@ export const metadata: Metadata = {
     "Portfolio of Bradford Allen Rodgers-Farmer, Principal Software Engineer specializing in Next.js, cloud architecture, PCI-compliant checkout systems, and AI-powered tools.",
 };
 
+const PERSON_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Bradford Allen Rodgers-Farmer",
+  url: "https://bradfordrodgersfarmer.us",
+  image: "https://bradfordrodgersfarmer.us/headshot.png",
+  jobTitle: "Principal Software Engineer",
+  worksFor: { "@type": "Organization", name: "The Muse" },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "Rutgers University" },
+  email: "mailto:bradfordrodgersfarmer@gmail.com",
+  sameAs: [
+    "https://www.tiktok.com/@truebelvira",
+    "https://www.threads.com/@bchaos567",
+    "https://www.instagram.com/bchaos567",
+    "https://x.com/Bchaos567",
+    "https://bsky.app/profile/belvira.bsky.social",
+    "https://github.com/bchaos",
+    "https://crawlers.cc",
+    "https://tcg-wallet.com",
+  ],
+  knowsAbout: [
+    "Next.js",
+    "React",
+    "Node.js",
+    "Cloud Architecture",
+    "PCI Compliance",
+    "Machine Learning",
+    "TypeScript",
+  ],
+};
+
 const PROJECTS = [
   {
     name: "crawlers.cc",
@@ -104,6 +135,10 @@ export default function Page() {
   return (
     <div className={styles.page}>
       <Script src="https://www.tiktok.com/embed.js" strategy="beforeInteractive" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }}
+      />
       <div className={styles.ambient} aria-hidden="true" />
       <div className={styles.wrap}>
         <nav className={styles.nav}>
