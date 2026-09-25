@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Script from "next/script";
 import styles from "./portfolio.module.css";
 import { SocialLinks } from "./socials";
 
@@ -141,7 +140,6 @@ const EXPERIENCE = [
 export default function Page() {
   return (
     <div className={styles.page}>
-      <Script src="https://www.tiktok.com/embed.js" strategy="beforeInteractive" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }}
@@ -302,34 +300,23 @@ export default function Page() {
               build. Follow along at <strong>@truebelvira</strong>.
             </p>
           </div>
-          <div className={styles.tiktok}>
-            <div className={styles.tiktokCopy}>
-              <p>
-                Short videos on engineering craft, AI experiments, and behind the
-                scenes of projects like crawlers.cc and the Cortex AI NPC
-                Generator. New videos drop regularly.
-              </p>
-              <div className={styles.ctaRow}>
-                <a
-                  className={`${styles.btn} ${styles.btnPrimary}`}
-                  href="https://www.tiktok.com/@truebelvira"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Follow @truebelvira
-                </a>
-              </div>
-              <SocialLinks compact />
+          <div className={styles.tiktokCopy}>
+            <p>
+              Short videos on engineering craft, AI experiments, and behind the
+              scenes of projects like crawlers.cc and the Cortex AI NPC
+              Generator. New videos drop regularly.
+            </p>
+            <div className={styles.ctaRow}>
+              <a
+                className={`${styles.btn} ${styles.btnPrimary}`}
+                href="https://www.tiktok.com/@truebelvira"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Follow @truebelvira
+              </a>
             </div>
-            <div className={styles.embedBox}>
-              <iframe
-                src="https://www.tiktok.com/embed/7349690896402763038"
-                style={{ maxWidth: "605px", minWidth: "305px", height: "600px" }}
-                allowFullScreen
-                allow="encrypted-media;"
-                title="TikTok video by @truebelvira"
-              />
-            </div>
+            <SocialLinks compact />
           </div>
         </section>
 
