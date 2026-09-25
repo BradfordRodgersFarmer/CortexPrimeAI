@@ -1,153 +1,288 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import type { Metadata } from "next";
+import Link from "next/link";
+import styles from "../portfolio.module.css";
 
-export default function Page(){
-    return (
-        <div>
-            <Head>
-                <meta charSet="UTF-8"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <title>Resume</title>
+export const metadata: Metadata = {
+  title: "Resume | Bradford Allen Rodgers-Farmer",
+  description:
+    "Resume of Bradford Allen Rodgers-Farmer, Principal Software Engineer: experience, projects, skills, and education.",
+};
 
-            </Head>
-            <div className="ui container">
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" strokeWidth={2.5} aria-hidden="true">
+      <path d="M20 6 9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
-                <h1 className="ui dividing header">Resume <Link className="ui button primary" href="/">Home</Link></h1>
+const ACCOMPLISHMENTS = [
+  "Saved $150K per year at The Muse by consolidating services after the Fairygodboss acquisition",
+  "Improved page speed of Fairygodboss by 80 percent",
+  "Helped design and create the Shoppable Video service, later sold to Unilever and GSK",
+  "Worked with large online retailers to integrate their APIs into our checkout flow",
+  "Updated Shoppable\u2019s checkout solution to ensure full PCI compliance",
+  "Mentored junior developers to level up their skills",
+  "Graduated with a master\u2019s degree in Computer Engineering",
+];
 
-                <h2 className="ui header">Key Accomplishments</h2>
-                <div className="ui list">
-                    <div className="item">Saved 150k per year at the Muse by consolidating services after Fairygodboss
-                        was acquired by them
-                    </div>
-                    <div className="item">Improved page speed of Fairygod Boss by 80%
-                    </div>
-                    <div className="item">Helped design and created the Shoppable Video service which was sold to
-                        Unilever and GSK
-                    </div>
-                    <div className="item">Worked with several large online retailers to integrate their APIs in to our
-                        checkout flow
-                    </div>
-                    <div className="item">Updated Shoppable’s checkout solution to ensure PCI compliance
-                    </div>
-                    <div className="item">Worked helping junior developers to improve their skills
-                    </div>
-                </div>
-                <div className="item">
-                    Graduated with a Masters degree in Computer Engineering
-                </div>
+const PROJECT_LINKS = [
+  {
+    name: "crawlers.cc",
+    badge: "Latest",
+    description:
+      "Free GM tool for running Dungeon Crawler Carl tabletop RPG sessions: dungeon floor generation, tile-by-tile map reveal, and character, loot, and achievement tracking.",
+    tags: ["Next.js", "Cloudflare", "Auth0"],
+    href: "https://crawlers.cc",
+  },
+  {
+    name: "TCG Wallet",
+    badge: "Live",
+    description:
+      "Core wallet technology for trading card games, engineered with PCI-grade rigor for real-money flows.",
+    tags: ["Next.js", "OAuth", "Google Cloud"],
+    href: "https://tcg-wallet.com",
+  },
+  {
+    name: "Cortex AI NPC Generator",
+    badge: "AI Tool",
+    description:
+      "AI-powered non-player character generator for the Cortex Prime tabletop RPG, with backstories, stats, and plot hooks.",
+    tags: ["Next.js", "Cloudflare AI"],
+    href: "/cortexPrimeCreator",
+  },
+  {
+    name: "Magical Arrival",
+    badge: "AI Storytelling",
+    description:
+      "An AI story-based tabletop RPG with collaborative narrative generation and dynamic story arcs.",
+    tags: ["Next.js", "AI"],
+    href: "/magicalArrival",
+  },
+];
 
-
-
-                <h2 className="ui header">Jobs</h2>
-                <div className="ui segments">
-                    <div className="ui segment">
-                        <p><strong>Principal Software Engineer</strong> - May 2020 to Present</p>
-
-                        <p>The Muse / Fairygod Boss</p>
-                        <div className="ui list">
-                            <div className="item">Responsible for managing the development of new features and new products.
-                            </div>
-
-                            <div className="item">Choosing what technologies to use to run the company effectively. By
-                                migrating article pages and jobs pages to NextJS
-                            </div>
-                            <div className="item">Helped save the company 150k per year though consolidation of cloud
-                                services
-                            </div>
-                            <div className="item">Worked both with a professional design team as well as external partners
-                                to provide a helpful experience to our users.
-                            </div>
-                            <div className="item">Improved the email service to help send better personalized emails to
-                                improve user retention.
-                            </div>
-                            <div className="item">The technologies used at this position were NodeJS, React, NextJS, NestJS,
-                                NX, Airflow, Google Cloud Functions, Jenkins, Machine Learning Modeling.
-                            </div>
-                            <div className="item">
-                                Cloud platforms used were (AWS, and GCP).
-                            </div>
-                            <div className="item">
-                                Trained junior developers and hiring engineers.
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="ui segment">
-                        <p><strong>Principal Software Engineer</strong> - 2015 to May 2020</p>
-                        <p>Shoppable</p>
-                        <div className="ui list">
-                            <div className="item">Developed Shoppable Video
-                            </div>
-                            <div className="item">Setup microservices to run checkout
-                            </div>
-                            <div className="item">Ensuring security of all of our technologies by ensuring our products were
-                                all PCI compliant.
-                            </div>
-                            <div className="item">Worked with major brands such as GSK and Unilever to design a product that
-                                fit their checkout needs across their major brands.
-                            </div>
-                            <div className="item">Worked with major brands such as Walmart, Target, and Ulta to integrate
-                                their APIs into our checkout flow.
-                            </div>
-                            <div className="item">Working directly with the CEO, in order to determine the direction of the
-                                business.
-                            </div>
-                            <div className="item">Use of BPMN to design the checkout and fulfillment flow.
-                            </div>
-                            <div className="item">Technologies used at this position were Rails, Ruby, NodeJS, React, BPMN,
-                                AngularJS.
-                            </div>
-                            <div className="item">
-                                Cloud platforms used were Azure, AWS, and GCP.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="ui segment">
-                        <p><strong>Lead Mobile Developer</strong> - 2011-2014</p>
-                        <p>Propeller Communications</p>
-                        <div className="ui list">
-                            <div className="item">Created speicalized sales Ipad applications for Johnson and Johnson sales
-                                teams
-                            </div>
-                            <div className="item">Turned clients requests into features in products.
-                            </div>
-                            <div className="item">Worked closely with the business team at Johnson and Johnson to design
-                                products for their sales team
-                            </div>
-                            <div className="item">Created documentation to pass off to business partners
-                            </div>
-                            <div className="item">Used the following programming languages: IOS, HTML5, Javascript,
-                                Unity(C-sharp), and php .
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <h2 className="ui header">Skills</h2>
-                <div className="ui list">
-                    <div className="item">
-                        Experience with the following programming languages: NodeJS, NextJS, NestJS,
-                        Go, Golang Rails, React, AngularJS, BPMN, Servless, Behaviour Driven Development,
-                        Software engineering practices, Javascript, Mysql, UML documentation, Python,
-                        Ajax, Linux, GANT Chart creation, Agile Methodologies, Cloud platforms, AWS,
-                        GCP, Azure, LLAMA 2.
-                    </div>
-                </div>
-                <h2 className="ui header">Education</h2>
-                <div className="ui segments">
-                    <div className="ui segment">
-                        <div className="ui list">
-                            <div className="item">
-                                M.E Computer and Electrical Engineering, Rutgers University, 2011<br/>
-                                New Brunswick, New Jersey
-                            </div>
-                            <div className="item">
-                                B.E Computer and Electrical Engineering, Rutgers University, 2007<br/>
-                                New Brunswick, New Jersey
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+export default function Page() {
+  return (
+    <div className={styles.page}>
+      <div className={styles.ambient} aria-hidden="true" />
+      <div className={styles.wrap}>
+        <div className={styles.resumeHead}>
+          <div>
+            <Link className={styles.backLink} href="/">
+              &#8592; Back to Home
+            </Link>
+            <h1>Resume</h1>
+            <p className={styles.sub}>
+              Bradford Allen Rodgers-Farmer | Principal Software Engineer |
+              bradfordrodgersfarmer@gmail.com
+            </p>
+          </div>
         </div>
-    );
+
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>Key Accomplishments</h2>
+          </div>
+          <div className={styles.accomplish}>
+            {ACCOMPLISHMENTS.map((a) => (
+              <div key={a} className={styles.item}>
+                <CheckIcon />
+                <span>{a}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>Projects I&apos;ve Worked On</h2>
+            <p>
+              Selected products and tools, from commerce infrastructure to
+              AI-powered tabletop experiences.
+            </p>
+          </div>
+          <div className={styles.grid}>
+            {PROJECT_LINKS.map((p) => (
+              <a
+                key={p.name}
+                className={styles.card}
+                href={p.href}
+                target={p.href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+              >
+                <div className={styles.cardTop}>
+                  <span className={styles.badge}>{p.badge}</span>
+                  <span className={styles.arrow} aria-hidden="true">
+                    &#8599;
+                  </span>
+                </div>
+                <h3>{p.name}</h3>
+                <p>{p.description}</p>
+                <div className={styles.tags}>
+                  {p.tags.map((t) => (
+                    <span key={t} className={styles.tag}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>Jobs</h2>
+          </div>
+
+          <article className={styles.job}>
+            <div className={styles.jobHead}>
+              <h3>
+                Principal Software Engineer <span>@ The Muse / Fairygodboss</span>
+              </h3>
+              <span className={styles.period}>May 2020 to Present</span>
+            </div>
+            <ul>
+              <li>Responsible for managing the development of new features and new products</li>
+              <li>
+                Choose the technologies that run the company effectively, including
+                migrating article and jobs pages to Next.js
+              </li>
+              <li>Saved the company $150K per year through consolidation of cloud services</li>
+              <li>
+                Worked with a professional design team and external partners to deliver a
+                great user experience
+              </li>
+              <li>
+                Improved the email service with better personalization to lift user retention
+              </li>
+              <li>
+                <strong>Technologies:</strong> Node.js, React, Next.js, NestJS, NX, Airflow,
+                Google Cloud Functions, Jenkins, Machine Learning Modeling
+              </li>
+              <li>
+                <strong>Cloud platforms:</strong> AWS, GCP
+              </li>
+              <li>Trained junior developers and led engineering hiring</li>
+            </ul>
+          </article>
+
+          <article className={styles.job}>
+            <div className={styles.jobHead}>
+              <h3>
+                Principal Software Engineer <span>@ Shoppable</span>
+              </h3>
+              <span className={styles.period}>2015 to May 2020</span>
+            </div>
+            <ul>
+              <li>Developed Shoppable Video, later sold to Unilever and GSK</li>
+              <li>Set up microservices to run checkout</li>
+              <li>Kept all products PCI compliant and certified</li>
+              <li>
+                Worked with major brands such as GSK and Unilever to design checkout
+                experiences across their brands
+              </li>
+              <li>
+                Integrated retailer APIs from Walmart, Target, and Ulta into the checkout flow
+              </li>
+              <li>Worked directly with the CEO on business and technical direction</li>
+              <li>Used BPMN to design the checkout and fulfillment flow</li>
+              <li>
+                <strong>Technologies:</strong> Rails, Ruby, Node.js, React, BPMN, AngularJS
+              </li>
+              <li>
+                <strong>Cloud platforms:</strong> Azure, AWS, GCP
+              </li>
+            </ul>
+          </article>
+
+          <article className={styles.job}>
+            <div className={styles.jobHead}>
+              <h3>
+                Lead Mobile Developer <span>@ Propeller Communications</span>
+              </h3>
+              <span className={styles.period}>2011 to 2014</span>
+            </div>
+            <ul>
+              <li>
+                Created specialized iPad sales applications for Johnson and Johnson sales
+                teams
+              </li>
+              <li>Turned client requests into shipped product features</li>
+              <li>
+                Worked closely with the business team at Johnson and Johnson to design
+                products for their sales team
+              </li>
+              <li>Created documentation for handoffs to business partners</li>
+              <li>
+                <strong>Technologies:</strong> iOS, HTML5, JavaScript, Unity (C#), PHP
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>Skills</h2>
+          </div>
+          <div className={styles.skills}>
+            {[
+              "Node.js",
+              "Next.js",
+              "NestJS",
+              "Go",
+              "Ruby on Rails",
+              "React",
+              "AngularJS",
+              "BPMN",
+              "Serverless",
+              "Behavior Driven Development",
+              "Software Engineering Practices",
+              "JavaScript",
+              "MySQL",
+              "UML Documentation",
+              "Python",
+              "Ajax",
+              "Linux",
+              "Gantt Chart Creation",
+              "Agile Methodologies",
+              "AWS",
+              "GCP",
+              "Azure",
+              "LLMs",
+            ].map((s) => (
+              <span key={s} className={styles.tag}>
+                {s}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>Education</h2>
+          </div>
+          <article className={styles.job}>
+            <ul>
+              <li>
+                <strong>M.E. Computer and Electrical Engineering</strong>, Rutgers University,
+                2011 | New Brunswick, New Jersey
+              </li>
+              <li>
+                <strong>B.E. Computer and Electrical Engineering</strong>, Rutgers University,
+                2007 | New Brunswick, New Jersey
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <footer className={styles.footer}>
+          <span>&copy; {new Date().getFullYear()} Bradford Allen Rodgers-Farmer</span>
+          <Link className={styles.backLink} href="/">
+            &#8592; Back to Home
+          </Link>
+        </footer>
+      </div>
+    </div>
+  );
 }
